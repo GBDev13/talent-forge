@@ -73,8 +73,16 @@ export const SettingsDialog = ({ ...props }: SettingsDialogProps) => {
     <Dialog {...props} title="Settings" className="w-full max-w-[350px]">
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label className="font-semibold text-sm text-neutral-500 block mb-1">
+          
+          <label className="font-semibold text-sm text-neutral-500 mb-1 flex items-center gap-2">
             API Key
+            <Tooltip className="!bg-neutral-700" content={<span className="block text-neutral-300">
+            You can find your API key <a className="text-pink-500 underline transition-colors" href="https://platform.openai.com/account/api-keys" target="_blank">here</a>
+          </span>}>
+              <div className="hover:text-pink-500 transition-colors">
+                <BsQuestionCircle size={15} />
+              </div>
+            </Tooltip>
           </label>
           <Controller
             name="apiKey"
@@ -107,7 +115,7 @@ export const SettingsDialog = ({ ...props }: SettingsDialogProps) => {
           <div>
             <label className="font-semibold text-sm text-neutral-500 mb-1 flex items-center gap-2">
               Questions Quantity
-              <Tooltip content={<span className="block max-w-[300px] text-xs text-neutral-300">
+              <Tooltip className="!bg-neutral-700" content={<span className="block max-w-[300px] text-xs text-neutral-300">
               Each generated interview question and answer has a limit of 100 tokens (100-150 characters) and there is a limit of 20 questions per request, meaning that the total number of tokens generated per request will not exceed 2,000. To avoid exceeding the limit, we recommend generating around 5 questions per request.
               </span>}>
                 <div className="hover:text-pink-500 transition-colors">

@@ -93,8 +93,14 @@ export const StartDialog = ({ open, onOpenChange }: StartDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange} title={"Let's get to know you!"} canClose={false}>
       <DialogPrimitive.Description className="font-light text-neutral-400 text-sm sm:text-base">
         {step === 1 ?
-          "To help us tailor your interview training, please let us know what position you're applying for and what skills are required for the job. This information will help us provide you with targeted training on the specific skills and attributes the job requires." :
-          "In addition, to generate questions, we will be using the OpenAI API. We understand the importance of keeping your data secure and confidential, and we want to assure you that your API key will be encrypted and stored only in your browser's cookies. We will not store it anywhere else."
+          "To help us tailor your interview training, please let us know what position you're applying for and what skills are required for the job. This information will help us provide you with targeted training on the specific skills and attributes the job requires." : (
+            <>
+              {"In addition, to generate questions, we will be using the OpenAI API. We understand the importance of keeping your data secure and confidential, and we want to assure you that your API key will be encrypted and stored only in your browser's cookies. We will not store it anywhere else."}
+              <span className="block text-neutral-300 mt-2">
+                You can find your API key <a className="text-pink-500 underline transition-colors" href="https://platform.openai.com/account/api-keys" target="_blank">here</a>
+              </span>
+            </>
+          )
         }
       </DialogPrimitive.Description>
 
