@@ -35,7 +35,7 @@ export default async function handler(
     Do not include any explanations, only provide a  RFC8259 compliant JSON response  following this format without deviation.
     [{
       "question": "generated questions",
-      "answer": "generated answer",
+      "answer": "generated answer"
     }]
     The JSON response:`.trim()
 

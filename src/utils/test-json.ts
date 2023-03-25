@@ -1,10 +1,10 @@
-export const testJSON = (text: string) => {
-  if(typeof text !== "string") return false;
-  
+export const testJSON = (item: string) => {
+  let value = typeof item !== "string" ? JSON.stringify(item) : item;
   try {
-    JSON.parse(text);
-    return true;
+    value = JSON.parse(value);
   } catch (e) {
     return false;
   }
+
+  return typeof value === "object" && value !== null;
 }
