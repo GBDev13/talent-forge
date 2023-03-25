@@ -18,6 +18,16 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>TalentForge | Get expert training for your job interviews</title>
         <meta name="description" content="Get ready to conquer your next professional challenge with TalentForge. Train your job interview skills with personalized questions and answers and increase your chances of success." />
+        <meta property="og:image" content="/ogimage.png" />
+        <meta property="og:title" content="TalentForge | Get expert training for your job interviews" />
+        <meta property="og:description" content="Get ready to conquer your next professional challenge with TalentForge. Train your job interview skills with personalized questions and answers and increase your chances of success." />
+        <meta property="og:url" content="https://talent-forge.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TalentForge" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TalentForge | Get expert training for your job interviews" />
+        <meta name="twitter:description" content="Get ready to conquer your next professional challenge with TalentForge. Train your job interview skills with personalized questions and answers and increase your chances of success." />
+        <meta name="twitter:image" content="/ogimage.png" />
       </Head>
 
       <style jsx global>{`
