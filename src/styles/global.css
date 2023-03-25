@@ -11,6 +11,10 @@
     @apply min-h-screen bg-neutral-900 text-neutral-200;
   }
 
+  #__next {
+    @apply h-screen
+  }
+
   :root {
     --plyr-color-main: #ec4899;
     --plyr-audio-controls-background: #262626;

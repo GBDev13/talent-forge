@@ -3,6 +3,7 @@ import { StartDialog } from "@/components/start-dialog";
 import { useQuestions } from "@/store/questions";
 import { useEffect, useState } from "react";
 import { AppHeader } from "@/components/app-header";
+import { AppFooter } from "@/components/app-footer";
 
 const CurrentQuestions = dynamic(() => import('@/components/current-questions'), { ssr: false });
 const StoredQuestions = dynamic(() => import('@/components/stored-questions'), { ssr: false });
@@ -19,7 +20,7 @@ export default function App() {
   }, [currentQuestions?.questions?.length])
 
   return (
-    <div className="w-full mb-20">
+    <div className="w-full min-h-screen mb-20 flex flex-col">
       <AppHeader />
 
       <StartDialog open={open} onOpenChange={setOpen} />
@@ -30,6 +31,8 @@ export default function App() {
       </section>
 
       <div className="bg-[url(/pattern.png)] bg-no-repeat bg-center absolute inset-0 z-[-1] bg-cover opacity-[0.15]" />
+
+      <AppFooter />
     </div>
   )
 }
