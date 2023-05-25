@@ -11,9 +11,9 @@ import { API_KEY_COOKIE } from '@/constants/cookies';
 import { useQuestions } from '@/store/questions';
 import { Button } from '../ui/button';
 import { Dialog } from '../ui/dialog';
-import { AxiosError } from 'axios';
 import { toast } from 'sonner';
 import { useSettings } from '@/store/settings';
+import { handleGenerationError } from '@/utils/handle-generation-error';
 
 type GenerateQuestionsDialogProps = {
   open: boolean
@@ -67,12 +67,7 @@ export const GenerateQuestionsDialog = ({ open, onOpenChange }: GenerateQuestion
       onOpenChange(false);
       toast.success("Questions generated successfully!")
     } catch (error) {
-      const status = (error as AxiosError)?.response?.status;
-      if(status === 401) {
-        toast.error("Please, update your API key on the settings.")
-        return
-      }
-      toast.error("Something went wrong. Please, try again later.")
+      handleGenerationError(error)
     }
   }
 

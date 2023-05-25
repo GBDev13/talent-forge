@@ -63,6 +63,12 @@ export default async function handler(
 
     return res.status(200).json({ questions })
   } catch (error) {
-    return res.status((error as AxiosError)?.response?.status ?? 500).json({ error: true, message: "Unhandled Error" })
+    const axiosError = error as AxiosError;
+    
+    if(axiosError?.response?.status === 409) {
+      return res.status(409).json({ error: true, message: "Limit Exceeded" })
+    }
+
+    return res.status(axiosError?.response?.status ?? 500).json({ error: true, message: "Unhandled Error" })
   }
 }
